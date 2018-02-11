@@ -1,0 +1,9 @@
+Spark notes:
+
+Even during node failures, the narrow dependency operation only recomputes the missing partition of the parent node, while in the case of wide dependency, all the dependent partitions of the parent RDD are recomputed.
+
+However, the fold() function also requires a zero value that is utilized while initializing the call to the partitions for the RDD. Depending on the type of aggregate function the zero value should ideally change , such as while adding the values of RDD elements zero value can be 0, similarly while multiplying it can be 1 and while concatenating a string it could be a blank space. 
+
+HCatalog is a storage management tool that enables frameworks other than Hive to leverage a data model to read and write data. HCatalog tables provide an abstraction on the data format in HDFS and allow frameworks such as PIG and MapReduce to use the data without being concerned about the data format, such as RC, ORC, and text files.
+
+WebHCat, formerly called Templeton, allows access to the HCatalog service using REST APIs. Unlike HCatalog, which executed the command directly, WebHCat keeps the Hive, PIG, and MapReduce jobs in queues. The jobs can then be monitored and stopped as needed. The client needs to specify a HDFS location where the output of the job is stored.
