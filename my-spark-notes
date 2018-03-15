@@ -7,3 +7,6 @@ However, the fold() function also requires a zero value that is utilized whi
 HCatalog is a storage management tool that enables frameworks other than Hive to leverage a data model to read and write data. HCatalog tables provide an abstraction on the data format in HDFS and allow frameworks such as PIG and MapReduce to use the data without being concerned about the data format, such as RC, ORC, and text files.
 
 WebHCat, formerly called Templeton, allows access to the HCatalog service using REST APIs. Unlike HCatalog, which executed the command directly, WebHCat keeps the Hive, PIG, and MapReduce jobs in queues. The jobs can then be monitored and stopped as needed. The client needs to specify a HDFS location where the output of the job is stored.
+
+DataSet vs DataFrame in spark 1.6 and 2.*
+   This is a short description of how case classes and the objects of case classe work with dataframe and dataset.
