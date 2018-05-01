@@ -1,1 +1,9 @@
+invoke a lambda function using spring cloud framework..
+
+Spring cloud provides an api called SpringBootRequestHandler which looks at a fucntion name defined in properties file in classpath
+when a request is recieved, it will initialize spring context and does a component scan of the function name which implements
+Function interface.
+
+
+
 
