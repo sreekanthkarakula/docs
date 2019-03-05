@@ -1,8 +1,10 @@
 Spark notes:
 
-Even during node failures, the narrow dependency operation only recomputes the missing partition of the parent node, while in the case of wide dependency, all the dependent partitions of the parent RDD are recomputed.
+Even during node failures, the narrow dependency operation only recomputes the missing partition of the parent node, 
+while in the case of wide dependency, all the dependent partitions of the parent RDD are recomputed.
 
-However, the fold() function also requires a zero value that is utilized while initializing the call to the partitions for the RDD. Depending on the type of aggregate function the zero value should ideally change , such as while adding the values of RDD elements zero value can be 0, similarly while multiplying it can be 1 and while concatenating a string it could be a blank space. 
+However, the fold() function also requires a zero value that is utilized while initializing the call to the partitions for 
+the RDD. Depending on the type of aggregate function the zero value should ideally change , such as while adding the values of RDD elements zero value can be 0, similarly while multiplying it can be 1 and while concatenating a string it could be a blank space. 
 
 DataSet vs DataFrame in spark 1.6 and 2.*
    This is a short description of how case classes and the objects of case classe work with dataframe and dataset.
@@ -10,3 +12,11 @@ DataSet vs DataFrame in spark 1.6 and 2.*
 KafkaUtils.createStream vs KafkaUtils.createDirectstream:
    the create stream has entities called Reciever which poll data from kafka and is stored in Spark executors and offsets should be manged through WALs
    the createDirectstream has constant polling to kafkas topic+parttion and creates  RDD partitions as there is Kafka partitions to consume, which will all read data from Kafka in parallel. So there is one-to-one mapping between Kafka and RDD partitions.
+
+
+spark2 enhancements:
+   using spark session we can get catalog of data regarding temp tables created using df's
+   usage:
+   SparkSession ss = new sparksession()....
+   catalog = ss.catalog()
+   catalog.listDatabases().select("table name"),show();
